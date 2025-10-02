@@ -17,11 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
-
-
-
-
 @RestController
 @RequestMapping("/api")
 public class SubjectController {
@@ -70,7 +65,7 @@ public class SubjectController {
     }
 
     @DeleteMapping("/subject/{id}")
-    public ResponseEntity<Void> deleteSubject(@PathVariable Long id) {
+    public ResponseEntity<?> deleteSubject(@PathVariable Long id) {
         if (subjectRepository.existsById(id)){
             subjectRepository.deleteById(id);
             return ResponseEntity.noContent().build();

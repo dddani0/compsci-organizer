@@ -1,0 +1,3 @@
+INSERT INTO subjects (name, description, difficulty_rating,notes , date) VALUES ('Diszkrét Matematika I.', 'A Diszkrét Matematika I. tárgy leírása.', 3, '[Diszkrét Matematika I. jegyzetek]', '2023-09-01');
+INSERT INTO subjects (name, description, difficulty_rating, notes, date) VALUES ('Programozás I.', 'A Programozás I. tárgy leírása.', 4, '[Programozás I. jegyzetek]', '2023-09-02');
+INSERT INTO subjects (name, description, notes, difficulty_rating, date) VALUES ('Algoritmusok és Adatszerkezetek', 'Az Algoritmusok és Adatszerkezetek tárgy leírása.', '[Algoritmusok, Adatszerkezetek]', 5, '2023-09-03');
