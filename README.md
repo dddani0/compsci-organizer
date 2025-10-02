@@ -2,13 +2,13 @@ Application for reading and browsing my old computer science notes.
 
 # Getting Started
 
-## Prerequisites
+### Prerequisites
 - Java 21+
 - Maven 3.9.11
 - Springboot 3.5.6
 - Any IDE
 
-## Installation
+### Installation
 1. Clone the repository:
 ```
 git clone https://github.com/dddani0/compsci-organizer.git
