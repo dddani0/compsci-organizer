@@ -9,5 +9,4 @@ public class CompsciorganizerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CompsciorganizerApplication.class, args);
 	}
-
 }
