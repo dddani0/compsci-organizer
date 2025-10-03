@@ -4,6 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+#API keys
+.env
+.env.local
+
 ### STS ###
 .apt_generated
 .classpath
@@ -31,6 +35,7 @@ build/
 
 ### VS Code ###
 .vscode/
+.mvn
 
 #node modules
 node_modules/

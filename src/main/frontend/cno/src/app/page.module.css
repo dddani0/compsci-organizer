@@ -165,3 +165,36 @@ a.secondary {
     filter: invert();
   }
 }
+
+.gridBox {
+  display: grid;
+  margin: 10px;
+  gap: 5px;
+}
+
+.iconButton {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.iconButton:hover {
+  background-color: #f0f0f0;
+}
+
+.divflexbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.divflexbox img {
+  height: 64px;
+  width: 64px;
+}

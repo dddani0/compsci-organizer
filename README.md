@@ -23,3 +23,6 @@ npm install
 start run.bat
 ```
 The project is running in your IDE.
+
+# Contributions
+- All icons for the frontend part are not my property. They are from [Dinolabs](https://www.flaticon.com/authors/dinosoftlabs).

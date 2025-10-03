@@ -4,12 +4,14 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.compsciorganizer.Model.Subject;
 import com.compsciorganizer.Repository.SubjectRepository;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:3001" }, allowedHeaders = "*", methods = {
+        RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 public class SubjectController {
     SubjectRepository subjectRepository;
 
@@ -30,14 +34,14 @@ public class SubjectController {
     Collection<Subject> getSubjects() {
         return subjectRepository.findAll();
     }
-    
+
     @GetMapping("/subject/{id}")
     ResponseEntity<Subject> getSubject(@PathVariable Long id) {
         Optional<Subject> subject = subjectRepository.findById(id);
         return subject.map(ResponseEntity::ok)
-                     .orElse(ResponseEntity.notFound().build());
+                .orElse(ResponseEntity.notFound().build());
     }
-    
+
     @PostMapping("/subjects")
     public ResponseEntity<Subject> createSubject(@RequestBody Subject subject) {
         try {
@@ -47,7 +51,7 @@ public class SubjectController {
             return ResponseEntity.status(500).build();
         }
     }
-    
+
     @PutMapping("subject/{id}")
     public ResponseEntity<Subject> updateSubject(@PathVariable Long id, @RequestBody Subject subject) {
         Optional<Subject> optionalSubject = subjectRepository.findById(id);
@@ -66,7 +70,7 @@ public class SubjectController {
 
     @DeleteMapping("/subject/{id}")
     public ResponseEntity<?> deleteSubject(@PathVariable Long id) {
-        if (subjectRepository.existsById(id)){
+        if (subjectRepository.existsById(id)) {
             subjectRepository.deleteById(id);
             return ResponseEntity.noContent().build();
         } else {

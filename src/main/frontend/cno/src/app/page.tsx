@@ -1,24 +1,54 @@
-import Image from "next/image";
+"use client"
 import styles from "./page.module.css";
+import IconButton from "../Components/IconButton";
+//Pages
+import ErrorPage from "../Pages/ErrorPage";
+import LoadingPage from "../Pages/LoadingPage";
+import BrowsePage from "../Pages/BrowsePage";
+//Router
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SubjectPage from "@/Pages/SubjectPage";
 
-export default async function Home() {
-  try {
-    const response = await fetch("http://localhost:8080/api/subjects");
-    const data = await response.json();
 
-    return (
-      <ul>
-        {data.map((subject: any) => (
-          <li key={subject.id}>{subject.name}, {subject.description}, {(subject.notes != null) ?
-            (subject.notes.map((note: any) => (
-              <li key={note.id}>{note.title}, {note.content}, {note.date}</li>
-            ))) :
-            ("No available notes")}</li>
+export default function Home() {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-        ))}
-      </ul>
-    );
-  } catch (error) {
-    return <div>Error loading data</div>;
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:8080/api/subjects");
+        if (!response.ok) {
+          throw new Error('HTTP error! status: ' + response.status);
+        }
+        const data = await response.json();
+        setData(data);
+      }
+      catch (err) {
+        setError(err as any);
+      }
+      finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <LoadingPage />;
   }
+  if (error) {
+    return <ErrorPage error={error} />;
+  }
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<BrowsePage data={data} />} />
+        <Route path="/subject" element={<SubjectPage />} />
+      </Routes>
+    </Router>
+  )
+
 }

@@ -29,6 +29,8 @@ public class Subject {
     @Nonnull
     private String name;
     private String description;
+    @Nonnull
+    private String iconName;
     //notes
     @Nullable
     private List<String> notes;
