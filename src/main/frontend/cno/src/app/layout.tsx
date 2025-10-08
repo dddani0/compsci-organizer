@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "@/Components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Compsci-organizer",
@@ -14,6 +15,7 @@ export default function RootLayout({ children, }: Readonly<{
     <html lang="en">
       <body>
         {children}
+        <ThemeToggle />
       </body>
     </html>
   );

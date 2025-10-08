@@ -9,7 +9,7 @@ INSERT INTO subjects (
         'A Diszkrét Matematika I. tárgy leírása.' ,
         'calculator.png', 
         3, 
-        '[Diszkrét Matematika I. jegyzetek]', 
+        '[Diszkrét Matematika I. jegyzetek, fewifuwehfew]', 
         '2023-09-01');
 INSERT INTO subjects (
     name, 

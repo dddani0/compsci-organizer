@@ -1,13 +1,21 @@
+/* Light theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bgcolor: #E8DDB5;
+  --fgcolor: #B2C9AB;
+  --color: #92B6B1;
+  --hovercolor: #788AA3;
+  --bordercolor: #666A86;
+  --sidepadding: 8px;
+  --upperpadding: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark theme */
+[data-theme="dark"] {
+  --bgcolor: #062726;
+  --fgcolor: #A06CD5;
+  --color: #6247AA;
+  --hovercolor: #E2CFEA;
+  --bordercolor: #102B3F;
 }
 
 html,
@@ -17,9 +25,10 @@ body {
 }
 
 body {
-  color: darkgreen;
-  background: gray;
+  background-color: var(--bgcolor);
+  color: var(--color);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
@@ -29,7 +38,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--hovercolor);
   text-decoration: none;
 }
 
@@ -38,4 +47,3 @@ a {
     color-scheme: dark;
   }
 }
-
