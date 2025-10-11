@@ -26,12 +26,6 @@
   width: 64px;
 }
 
-.description {
-  margin: 10px;
-  font-size: 18px;
-  text-align: center;
-}
-
 .noteBox {
   background-color: var(--fgcolor);
   border: 2px solid var(--bordercolor);
@@ -53,4 +47,34 @@
 .themeToggle img {
   width: 32px;
   height: 32px;
+}
+
+.backButton {
+  cursor: pointer;
+  font-size: 16px;
+  background-color: var(--fgcolor);
+  border: 2px solid var(--bordercolor);
+  border-radius: 8px;
+  padding: var(--sidepadding) var(--upperpadding);
+  margin-top: 10px;
+}
+
+.showContentButton {
+  cursor: pointer;
+  font-size: 12px;
+  background-color: var(--fgcolor);
+  border: 2px solid var(--bordercolor);
+  border-radius: 8px;
+  padding: var(--sidepadding) var(--upperpadding);
+}
+
+div .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+div .description {
+  font-size: 16px;
+  margin-bottom: 10px;
 }

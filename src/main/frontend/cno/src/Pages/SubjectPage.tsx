@@ -1,35 +1,28 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from '../app/page.module.css';
+import Article from '@/Components/Article';
+import { BackButton } from '@/Components/BackButton';
 
 export default function SubjectPage() {
     const location = useLocation();
     const { subject } = location.state || {};
-    const navigate = useNavigate();
 
     if (!subject) {
         return <div>No subject data available.</div>;
     }
 
-    function handleBackButtonClick() {
-        navigate(-1); // Navigate back to the previous page
-    }
-
     return (
         <div className={styles.subjectPage}>
-            <div>
-                <h1>{subject.name}</h1>
+            <div className={styles.title}>
+               {subject.name}
             </div>
-            <div>
-                <p>{subject.description}</p>
+            <div className={styles.description}>
+                {subject.description}
             </div>
             <div className={styles.noteBox}>
-                <p>{subject.notes != null ? subject.notes : "No notes available."}</p>
+                <Article content={subject.notes} />
             </div>
-            <button
-                title="BackButton"
-                onClick={handleBackButtonClick}>
-                Back
-            </button>
+            <BackButton />
         </div>
     )
 }

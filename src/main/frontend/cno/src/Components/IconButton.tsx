@@ -12,7 +12,7 @@ export default function IconButton({ Subject }: { Subject: any }) {
     function handleClick() {
         setClicked(!clicked);
         //route to different page
-        navigate('/subject', { state: { subject: Subject } });
+        navigate(`/subject/${Subject.id}`, { state: { subject: Subject } });
     }
 
     return (

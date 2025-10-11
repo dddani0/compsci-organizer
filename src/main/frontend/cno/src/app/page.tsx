@@ -46,7 +46,7 @@ export default function Home() {
     <Router>
       <Routes>
         <Route path="/" element={<BrowsePage data={data} />} />
-        <Route path="/subject" element={<SubjectPage />} />
+        <Route path="/subject/:id" element={<SubjectPage />} />
       </Routes>
     </Router>
   )
